@@ -1,3 +1,5 @@
+// Вычислить остаток от деления двух чисел
+// Выполнил: Samir Madjidov
 package main
 
 import "fmt"
