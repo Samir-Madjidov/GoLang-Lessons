@@ -20,3 +20,8 @@ func main() {
 		fmt.Println("Избыточная масса тела")
 	}
 }
+
+
+
+// by Samir Madjidov 
+// github.com/samir-madjidov
