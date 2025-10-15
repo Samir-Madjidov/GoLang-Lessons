@@ -3,17 +3,26 @@ package main
 import "fmt"
 
 func main() {
-	phonebook := make(map[string]string)
-	phonebook["Jan"] = "+9924875487636"
-	phonebook["Gam"] = "+9929056744553"
-	phonebook["Irina"] = "+992209004765"
+	votes := []string{"Анна", "Петр", "Анна", "Мария", "Петр", "Анна"}
+	results := make(map[string]int)
 
-	var name string
-	fmt.Print("Кого ещем: ")
-	fmt.Scan(&name)
-	if phone, exists := phonebook[name]; exists {
-		fmt.Printf("Номер %s: %s\n", name, phone)
-	} else {
-		fmt.Printf("Контак %s не найден\n", name)
+	// Подсчет голосов
+	for _, candidate := range votes {
+		results[candidate] = results[candidate] + 1
 	}
+
+	// Находим победителя
+	winner := ""
+	maxVotes := 0
+
+	for candidate, count := range results {
+		fmt.Printf("%s: %d голосов\n", candidate, count)
+
+		if count > maxVotes {
+			maxVotes = count
+			winner = candidate
+		}
+	}
+
+	fmt.Printf("\nПобедитель: %s с %d голосами!\n", winner, maxVotes)
 }
