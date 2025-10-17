@@ -2,14 +2,36 @@ package main
 
 import "fmt"
 
-// Функция возвращает результат и остаток от деления
-func divide(dividend, divisor int) (int, int) {
-	quotient := dividend / divisor
-	remainder := dividend % divisor
-	return quotient, remainder
+func calculate(a int, b int, operation string) int {
+	switch operation {
+	case "+":
+		return a + b
+	case "-":
+		return a - b
+	case "*":
+		return a * b
+	case "/":
+		return a / b
+
+	}
+	return 0
+
 }
 
 func main() {
-	q, r := divide(10, 3)
-	fmt.Printf("10 / 3 = %d (остаток %d)\n", q, r) // 10 / 3 = 3 (остаток 1)
+	var a, b int
+	var op string
+
+	fmt.Print("Введите первое число: ")
+	fmt.Scan(&a)
+
+	fmt.Print("Введите второе число: ")
+	fmt.Scan(&b)
+
+	fmt.Print("Введите операцию (+, -, *, /): ")
+	fmt.Scan(&op)
+
+	result := calculate(a, b, op)
+	fmt.Println("Результат:", result)
+
 }
