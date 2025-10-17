@@ -2,14 +2,14 @@ package main
 
 import "fmt"
 
-func main() {
-	var nameArg string
-	fmt.Scanln(&nameArg)
-	hello(nameArg)
-
+// Функция возвращает результат и остаток от деления
+func divide(dividend, divisor int) (int, int) {
+	quotient := dividend / divisor
+	remainder := dividend % divisor
+	return quotient, remainder
 }
 
-// вывод приветсвия на экран
-func hello(name string) {
-	fmt.Printf("Hello,", name)
+func main() {
+	q, r := divide(10, 3)
+	fmt.Printf("10 / 3 = %d (остаток %d)\n", q, r) // 10 / 3 = 3 (остаток 1)
 }
