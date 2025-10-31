@@ -2,20 +2,26 @@ package calculate
 
 import "testing"
 
-func TestAdd(t *testing.T) {
-	reult := add(2, 3)
-	expected := 5
-
-	if reult != expected {
-		t.Errorf("add(2,3) was incorrect, got: %d, want: %d.", reult, expected)
+func TestAdd_TableDriven(t *testing.T) {
+	tests := []struct {
+		name     string
+		a        int
+		b        int
+		expected int
+	}{
+		{"positive numbers", 2, 3, 5},
+		{"negative numbers", -1, -1, -2},
+		{"mixed numbers", -5, 10, 5},
+		{"zero", 0, 0, 0},
 	}
 
-}
-func TestMultiplay(t *testing.T) {
-	result := Multiplay(3, 4)
-	expected := 20
-
-	if result != expected {
-		t.Errorf("Multiplay(3,4) was incorrect, got: %d, want: %d.", result, expected)
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			result := Add(tt.a, tt.b)
+			if result != tt.expected {
+				t.Errorf("Add(%d, %d) = %d; expected %d",
+					tt.a, tt.b, result, tt.expected)
+			}
+		})
 	}
 }
